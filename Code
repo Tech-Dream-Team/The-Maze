@@ -1,0 +1,31 @@
+#Maze
+from tkinter import*
+import random
+
+#make window
+window = Tk()
+window.title('The Maze')
+
+#create a canvas to put objects on the screen
+canvas = Canvas(window, width=400, height=400)
+canvas.pack()
+
+#set up welcome screen with title and directions
+title = canvas.create_text(200, 200, text= 'The Maze', \
+fill='Black', font = ('Helvetica', 30))
+directions = canvas.create_text(300, 300, text= 'Go through\
+ the maze but do not touch the walls.', fill='black', font = ('Helvetica', 20))
+directions = canvas.create_text(200, 350, text= 'touch the walls.\
+',fill='black', font = ('Helvetica', 20))
+
+#set up level display using label widget
+level = 1
+level_display = Label(window, text="Level :" + str(level))
+level_display.pack()
+
+#making maze walls
+player_image = PhotoImage(file="mazewalls.gif")
+#use image object to create a character at position 200, 360
+mychar = canvas.create_image(200, 300, image = player_image)
+mychar.pack()
+
